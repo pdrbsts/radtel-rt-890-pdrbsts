@@ -89,7 +89,7 @@ void ST7735S_SetPixel(uint8_t X, uint8_t Y, uint16_t Color)
 
 void ST7735S_Init(void)
 {
-	gColorBackground = COLOR_BLACK;
+	gColorBackground = COLOR_WHITE;
 	// Not used?
 	//DAT_20001118 = 0xFFFF;
 	gColorForeground = COLOR_BLACK;
@@ -177,7 +177,7 @@ void ST7735S_Init(void)
 	ST7735S_SendData(0x13);
 	ST7735S_SendCommand(ST7735S_CMD_COLMOD);
 	ST7735S_SendData(0x05);
-	DISPLAY_FillColor(COLOR_BLACK);
+	DISPLAY_FillColor(COLOR_WHITE);
 	ST7735S_SendCommand(ST7735S_CMD_DISPON);
 }
 

@@ -194,8 +194,8 @@ static void MAIN_KeyHandler(KEY_t Key)
 			}
 			RADIO_CancelMode();
 			if (gSettings.DualDisplay == 0) {
-				DISPLAY_Fill(1, 158, 1 + (gCurrentVfo * 41), 40 + (gCurrentVfo * 41), COLOR_BLACK);
-				DISPLAY_Fill(1, 158, 1 + ((!gCurrentVfo) * 41), 40 + ((!gCurrentVfo) * 41), COLOR_BLACK);
+				DISPLAY_Fill(1, 158, 1 + (gCurrentVfo * 41), 40 + (gCurrentVfo * 41), COLOR_WHITE);
+				DISPLAY_Fill(1, 158, 1 + ((!gCurrentVfo) * 41), 40 + ((!gCurrentVfo) * 41), COLOR_WHITE);
 				UI_DrawVoltage(gSettings.CurrentVfo);
 			}
 			UI_DrawMainBitmap(false, gSettings.CurrentVfo);
@@ -390,7 +390,7 @@ static void HandlerLong(KEY_t Key)
 
 			case KEY_5:
 				gMenuIndex = MENU_SQ_LEVEL;
-				DISPLAY_Fill(0, 159, 1, 81, COLOR_BLACK);
+				DISPLAY_Fill(0, 159, 1, 81, COLOR_WHITE);
 				DISPLAY_DrawRectangle0(0, 56, 160, 1, gSettings.BorderColor);
 				MENU_DrawSetting();
 				break;
@@ -407,7 +407,7 @@ static void HandlerLong(KEY_t Key)
 
 			case KEY_8:
 				gMenuIndex = MENU_FREQ_STEP;
-				DISPLAY_Fill(0, 159, 1, 81, COLOR_BLACK);
+				DISPLAY_Fill(0, 159, 1, 81, COLOR_WHITE);
 				DISPLAY_DrawRectangle0(0, 56, 160, 1, gSettings.BorderColor);
 				MENU_DrawSetting();
 				break;

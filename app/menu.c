@@ -156,11 +156,11 @@ static void DrawMenu(uint8_t Index)
 
 static void DrawQR(void)
 {
-	gColorForeground = COLOR_BLACK;
-	gColorBackground = COLOR_WHITE;
-	UI_DrawBitmap(24, 4, 6, 48, BitmapQR);
 	gColorForeground = COLOR_WHITE;
 	gColorBackground = COLOR_BLACK;
+	UI_DrawBitmap(24, 4, 6, 48, BitmapQR);
+	gColorForeground = COLOR_BLACK;
+	gColorBackground = COLOR_WHITE;
 }
 
 static void EnableTextEditor(void)
@@ -180,7 +180,7 @@ static void EnableTextEditor(void)
 
 static void DrawSettingName(uint8_t Index)
 {
-	gColorForeground = COLOR_WHITE;
+	gColorForeground = COLOR_BLACK;
 	UI_DrawString(24, 76, Menu[Index], 14);
 }
 
@@ -683,49 +683,49 @@ void MENU_DrawSetting(void)
 	case MENU_FREQ_STEP:
 		gSettingCurrentValue = gSettings.FrequencyStep;
 		gSettingMaxValues = 14;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawFrequencyStep(gSettingCurrentValue);
 		break;
 
 	case MENU_SQ_LEVEL:
 		gSettingCurrentValue = gSettings.Squelch;
 		gSettingMaxValues = 10;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawLevel(gSettingCurrentValue);
 		break;
 
 	case MENU_LED_TIMER:
 		gSettingCurrentValue = gSettings.DisplayTimer;
 		gSettingMaxValues = 43;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawTimer(gSettingCurrentValue);
 		break;
 
 	case MENU_LOCK_TIMER:
 		gSettingCurrentValue = gSettings.LockTimer;
 		gSettingMaxValues = 43;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawTimer(gSettingCurrentValue);
 		break;
 
 	case MENU_TOT:
 		gSettingCurrentValue = gSettings.TimeoutTimer;
 		gSettingMaxValues = 43;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawTimer(gSettingCurrentValue);
 		break;
 
 	case MENU_VOX_LEVEL:
 		gSettingCurrentValue = gSettings.VoxLevel;
 		gSettingMaxValues = 10;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawLevel(gSettingCurrentValue);
 		break;
 
 	case MENU_VOX_DELAY:
 		gSettingCurrentValue = gSettings.VoxDelay;
 		gSettingMaxValues = 10;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawLevel(gSettingCurrentValue);
 		break;
 
@@ -753,7 +753,7 @@ void MENU_DrawSetting(void)
 		gSettingMaxValues = 1;
 		T9State = 0;
 		EditSize = 16;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawActivateBy();
 		T9WritePos = 16;
 		for (i = 0; i < EditSize; i++) {
@@ -774,7 +774,7 @@ void MENU_DrawSetting(void)
 		gSettingCode = gVfoState[gSettings.CurrentVfo].RX.Code;
 		gSettingCodeType = gVfoState[gSettings.CurrentVfo].RX.CodeType;
 		MENU_SetMaxCssValues();
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawSettingArrow(0);
 		UI_DrawStringSwitchType();
 		DrawCss(gSettingCodeType, gSettingCode);
@@ -784,7 +784,7 @@ void MENU_DrawSetting(void)
 		gSettingCode = gVfoState[gSettings.CurrentVfo].TX.Code;
 		gSettingCodeType = gVfoState[gSettings.CurrentVfo].TX.CodeType;
 		MENU_SetMaxCssValues();
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawSettingArrow(0);
 		UI_DrawStringSwitchType();
 		DrawCss(gSettingCodeType, gSettingCode);
@@ -809,7 +809,7 @@ void MENU_DrawSetting(void)
 	case MENU_SCRAMBLER:
 		gSettingCurrentValue = gVfoState[gSettings.CurrentVfo].Scramble;
 		gSettingMaxValues = 9;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawScrambler(gSettingCurrentValue);
 		break;
 
@@ -827,14 +827,14 @@ void MENU_DrawSetting(void)
 			gSettingCurrentValue = 0;
 		}
 		gSettingGolay = gVfoState[gSettings.CurrentVfo].Golay;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawSettingArrow(0);
 		UI_DrawMute(gSettingCurrentValue, gSettingGolay, true);
 		return;
 
 	case MENU_CH_NAME:
 		gSettingMaxValues = 1;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawActivateBy();
 		T9State = 0;
 		EditSize = 10;
@@ -850,7 +850,7 @@ void MENU_DrawSetting(void)
 	case MENU_DELETE_CH:
 		gSettingMaxValues = 999;
 		gSettingCurrentValue = gSettings.VfoChNo[gSettings.CurrentVfo];
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawChannelName(gSettingCurrentValue);
 		break;
 
@@ -866,28 +866,28 @@ void MENU_DrawSetting(void)
 	case MENU_DTMF_DELAY:
 		gSettingCurrentValue = gDTMF_Settings.Delay;
 		gSettingMaxValues = 21;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawDtmfDelay(gSettingCurrentValue);
 		break;
 
 	case MENU_DTMF_INTERVAL:
 		gSettingCurrentValue = gDTMF_Settings.Interval;
 		gSettingMaxValues = 18;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawDtmfInterval(gSettingCurrentValue);
 		break;
 
 	case MENU_DTMF_MODE:
 		gSettingCurrentValue = gDTMF_Settings.Mode;
 		gSettingMaxValues = 4;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawDtmfMode(gSettingCurrentValue);
 		break;
 
 	case MENU_DTMF_SELECT:
 		gSettingCurrentValue = gDTMF_Settings.Select;
 		gSettingMaxValues = 16;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		UI_DrawDtmfSelect(gSettingCurrentValue);
 		break;
 
@@ -907,7 +907,7 @@ void MENU_DrawSetting(void)
 
 	case MENU_INSTRUCTION:
 		gSettingMaxValues = 0;
-		DISPLAY_Fill(0, 159, 1, 55, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 55, COLOR_WHITE);
 		DrawQR();
 		return;
 	}
@@ -922,10 +922,10 @@ void MENU_Redraw(bool bClear)
 	gSettingIndex = 0;
 	gInputBoxWriteIndex = 0;
 	if (bClear) {
-		DISPLAY_Fill(0, 159, 1, 81, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 1, 81, COLOR_WHITE);
 		DISPLAY_DrawRectangle0(0, 56, 160, 1, gSettings.BorderColor);
 	}
-	gColorForeground = COLOR_WHITE;
+	gColorForeground = COLOR_BLACK;
 	UI_DrawStringMenuSettings();
 	UI_DrawSettingArrow(0);
 	DrawMenu(gMenuIndex);

@@ -47,7 +47,7 @@ void UI_DrawBoot(void)
 		UI_DrawLogo();
 	}
 	if (gSettings.DisplayLabel || gSettings.DisplayVoltage) {
-		DISPLAY_Fill(0, 159, 0, 96, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 0, 96, COLOR_WHITE);
 	}
 	if (gSettings.DisplayLabel) {
 		UI_DrawWelcome();
@@ -59,7 +59,7 @@ void UI_DrawBoot(void)
 		DELAY_WaitMS(1000);
 	}
 
-	DISPLAY_Fill(0, 159, 0, 96, COLOR_BLACK);
+	DISPLAY_Fill(0, 159, 0, 96, COLOR_WHITE);
 	PlayStartupTone();
 }
 

@@ -27,20 +27,20 @@
 
 static void DrawMode0(void)
 {
-	DISPLAY_Fill(0, 159, 0, 96, COLOR_BLACK);
+	DISPLAY_Fill(0, 159, 0, 96, COLOR_WHITE);
 	DISPLAY_DrawRectangle0(0, 41, 160, 1, gSettings.BorderColor);
 
 	if (gSettings.DtmfState == DTMF_STATE_STUNNED) {
 		UI_DrawStatusIcon(4, ICON_LOCK, true, COLOR_RED);
 	} else {
-		UI_DrawStatusIcon(4, ICON_LOCK, gSettings.Lock, COLOR_WHITE);
+		UI_DrawStatusIcon(4, ICON_LOCK, gSettings.Lock, COLOR_BLACK);
 	}
 
-	UI_DrawStatusIcon(56, ICON_DUAL_WATCH, gSettings.DualStandby, COLOR_WHITE);
-	UI_DrawStatusIcon(80, ICON_VOX, gSettings.Vox, COLOR_WHITE);
+	UI_DrawStatusIcon(56, ICON_DUAL_WATCH, gSettings.DualStandby, COLOR_BLACK);
+	UI_DrawStatusIcon(80, ICON_VOX, gSettings.Vox, COLOR_BLACK);
 	UI_DrawRoger();
 	UI_DrawRepeaterMode();
-	UI_DrawStatusIcon(139, ICON_BATTERY, true, COLOR_WHITE);
+	UI_DrawStatusIcon(139, ICON_BATTERY, true, COLOR_BLACK);
 	UI_DrawBattery();
 }
 
@@ -51,7 +51,7 @@ void UI_DrawMain(uint8_t Mode)
 		DrawMode0();
 		break;
 	case 1:
-		DISPLAY_Fill(0, 159, 0, 81, COLOR_BLACK);
+		DISPLAY_Fill(0, 159, 0, 81, COLOR_WHITE);
 		DISPLAY_DrawRectangle0(0, 41, 160, 1, gSettings.BorderColor);
 		break;
 	}
@@ -87,13 +87,13 @@ void UI_DrawRepeaterMode(void)
 {
 	switch (gSettings.RepeaterMode) {
 	case 1:
-		UI_DrawStatusIcon(109, ICON_RR, true, COLOR_WHITE);
+		UI_DrawStatusIcon(109, ICON_RR, true, COLOR_BLACK);
 		break;
 	case 2:
-		UI_DrawStatusIcon(109, ICON_TR, true, COLOR_WHITE);
+		UI_DrawStatusIcon(109, ICON_TR, true, COLOR_BLACK);
 		break;
 	default:
-		UI_DrawStatusIcon(109, ICON_TR, false, COLOR_WHITE);
+		UI_DrawStatusIcon(109, ICON_TR, false, COLOR_BLACK);
 		break;
 	}
 }

@@ -93,8 +93,8 @@ void UI_DrawSettingArrow(uint8_t Selection)
 	Bitmap[4] = 0x01C0;
 	Bitmap[5] = 0x0080;
 
-	DISPLAY_Fill(8, 16,  8, 23, COLOR_BLACK);
-	DISPLAY_Fill(8, 16, 32, 47, COLOR_BLACK);
+	DISPLAY_Fill(8, 16,  8, 23, COLOR_WHITE);
+	DISPLAY_Fill(8, 16, 32, 47, COLOR_WHITE);
 
 	for (i = 0; i < 6; i++) {
 		uint16_t Pixel = Bitmap[i];
@@ -103,7 +103,7 @@ void UI_DrawSettingArrow(uint8_t Selection)
 
 		for (j = 0; j < 16; j++) {
 			if (Pixel & 0x8000U) {
-				ST7735S_SendU16(COLOR_WHITE);
+				ST7735S_SendU16(COLOR_BLACK);
 			} else {
 				ST7735S_SendU16(gColorBackground);
 			}
@@ -242,7 +242,7 @@ void UI_DrawActivateBy(void)
 	DISPLAY_DrawRectangle0(1, 20, 159, 1, gSettings.BorderColor);
 	gColorForeground = COLOR_RED;
 	UI_DrawString(20, 18, "Activate by [#]", 15);
-	gColorForeground = COLOR_WHITE;
+	gColorForeground = COLOR_BLACK;
 }
 
 
@@ -266,7 +266,7 @@ void UI_DrawTxPriority(void)
 
 void UI_DrawFrequencyStep(uint8_t Index)
 {
-	gColorForeground = COLOR_WHITE;
+	gColorForeground = COLOR_BLACK;
 
 	switch (Index) {
 	case 0:
@@ -394,7 +394,7 @@ void UI_DrawLevel(uint8_t Index)
 {
 	char Digit;
 
-	gColorForeground = COLOR_WHITE;
+	gColorForeground = COLOR_BLACK;
 	Digit = '0' + Index;
 	UI_DrawSettingOptionEx(&Digit, 1, 0);
 	Digit = '0' + (Index + 1) % 10;
