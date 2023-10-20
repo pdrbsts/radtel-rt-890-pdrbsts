@@ -126,7 +126,7 @@ static bool TuneTX(bool bUseMic)
 
 	gCode = gVfoInfo[gCurrentVfo].Code;
 	BK4819_SetFrequency(gVfoInfo[gCurrentVfo].Frequency);
-	if (gSettings.BandInfo[gCurrentFrequencyBand] == 0 && gVfoInfo[gCurrentVfo].Frequency >= 13600000) {
+	if (gVfoState[gSettings.CurrentVfo].gModulationType == 0) {
 		BK4819_UpdateGpioOut(false);
 		if (gMainVfo->bMuteEnabled) {
 			CSS_SetCustomCode(gMainVfo->bIs24Bit, gMainVfo->Golay, gMainVfo->bIsNarrow);
