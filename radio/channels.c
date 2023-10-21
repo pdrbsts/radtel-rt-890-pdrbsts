@@ -369,7 +369,7 @@ void CHANNELS_NextChannelVfo(uint8_t Key)
 		if (Key == KEY_UP) {
 			pInfo->RX.Frequency += gFrequencyStep;
 			if (gSettings.bFLock) {
-				if (pInfo->RX.Frequency > 13600000 && pInfo->RX.Frequency < 14400000) {
+				if (pInfo->RX.Frequency > 13700000 && pInfo->RX.Frequency < 14400000) {
 					pInfo->RX.Frequency = 14400000;
 				}
 				if (pInfo->RX.Frequency > 14600000 && pInfo->RX.Frequency < 43000000) {
@@ -387,8 +387,8 @@ void CHANNELS_NextChannelVfo(uint8_t Key)
 				if (pInfo->RX.Frequency < 10800000) {
 					pInfo->RX.Frequency = 44000000;
 				}
-				if (pInfo->RX.Frequency > 13600000 && pInfo->RX.Frequency < 14400000) {
-					pInfo->RX.Frequency = 13600000;
+				if (pInfo->RX.Frequency > 13700000 && pInfo->RX.Frequency < 14400000) {
+					pInfo->RX.Frequency = 13700000;
 				}
 				if (pInfo->RX.Frequency > 14600000 && pInfo->RX.Frequency < 43000000) {
 					pInfo->RX.Frequency = 14600000;
@@ -399,7 +399,7 @@ void CHANNELS_NextChannelVfo(uint8_t Key)
 		}
 		pInfo->TX.Frequency = pInfo->RX.Frequency;
 		gVfoInfo[gSettings.CurrentVfo].Frequency = pInfo->RX.Frequency;
-		// if (pInfo->RX.Frequency < 13600000) {
+		// if (pInfo->RX.Frequency < 13700000) {
 		// 	pInfo->gModulationType = 1;
 		// } else {
 		// 	pInfo->gModulationType = 0;
@@ -408,7 +408,7 @@ void CHANNELS_NextChannelVfo(uint8_t Key)
 		if (Key == KEY_UP) {
 			pInfo->TX.Frequency += gFrequencyStep;
 			if (gSettings.bFLock) {
-				if (pInfo->TX.Frequency > 13600000 && pInfo->TX.Frequency < 14400000) {
+				if (pInfo->TX.Frequency > 13700000 && pInfo->TX.Frequency < 14400000) {
 					pInfo->TX.Frequency = 14400000;
 				}
 				if (pInfo->TX.Frequency > 14600000 && pInfo->TX.Frequency < 43000000) {
@@ -426,8 +426,8 @@ void CHANNELS_NextChannelVfo(uint8_t Key)
 				if (pInfo->TX.Frequency < 10800000) {
 					pInfo->TX.Frequency = 44000000;
 				}
-				if (pInfo->TX.Frequency > 13600000 && pInfo->TX.Frequency < 14400000) {
-					pInfo->TX.Frequency = 13600000;
+				if (pInfo->TX.Frequency > 13700000 && pInfo->TX.Frequency < 14400000) {
+					pInfo->TX.Frequency = 13700000;
 				}
 				if (pInfo->TX.Frequency > 14600000 && pInfo->TX.Frequency < 43000000) {
 					pInfo->TX.Frequency = 14600000;
@@ -520,7 +520,7 @@ void CHANNELS_UpdateVFO(void)
 		(gSettings.bFLock && (
 			(Frequency >= 14400000 && Frequency <= 14600000) ||
 			(Frequency >= 43000000 && Frequency <= 44000000) ||
-			(Frequency >= 10800000 && Frequency <= 13600000)))
+			(Frequency >= 10800000 && Frequency <= 13700000)))
 	   ) {
 		if (!gFrequencyReverse) {
 			gVfoState[gSettings.CurrentVfo].RX.Frequency = Frequency;
@@ -551,7 +551,7 @@ bool CHANNELS_LoadChannel(uint16_t ChNo, uint8_t Vfo)
 		if (Frequency > 14600000 && Frequency < 43000000) {
 			return true;
 		}
-		if (Frequency > 13600000 && Frequency < 14400000) {
+		if (Frequency > 13700000 && Frequency < 14400000) {
 			return true;
 		}
 		if (Frequency < 10800000) {
@@ -564,7 +564,7 @@ bool CHANNELS_LoadChannel(uint16_t ChNo, uint8_t Vfo)
 		if (Frequency > 14600000 && Frequency < 43000000) {
 			return true;
 		}
-		if (Frequency > 13600000 && Frequency < 14400000) {
+		if (Frequency > 13700000 && Frequency < 14400000) {
 			return true;
 		}
 		if (Frequency < 10800000) {
