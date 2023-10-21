@@ -56,7 +56,7 @@ void FREQUENCY_SelectBand(uint32_t Frequency)
 	uint8_t Band;
 	uint8_t Level;
 
-	if (Frequency >= 13600000  && Frequency <= 17400000) {
+	if (Frequency >= 13700000  && Frequency <= 17400000) {
 		Band = 0;
 		Level = (Frequency - 13500000) / 500000;
 		gUseUhfFilter = false;
@@ -64,7 +64,7 @@ void FREQUENCY_SelectBand(uint32_t Frequency)
 		Band = 1;
 		Level = (Frequency - 40000000) / 500000;
 		gUseUhfFilter = true;
-	} else if (Frequency >= 6400000 && Frequency <= 13600000) {
+	} else if (Frequency >= 1000000 && Frequency <= 13700000) {
 		Band = 3;
 		Level = (Frequency - 6000000) / 500000;
 		gUseUhfFilter = false;
@@ -80,7 +80,7 @@ void FREQUENCY_SelectBand(uint32_t Frequency)
 		Band = 6;
 		Level = (Frequency - 32000000) / 500000;
 		gUseUhfFilter = true;
-	} else if (Frequency >= 48000000 && Frequency <= 56000000) {
+	} else if (Frequency >= 48000000 && Frequency <= 130000000) {
 		Band = 7;
 		Level = (Frequency - 48000000) / 500000;
 		gUseUhfFilter = true;
